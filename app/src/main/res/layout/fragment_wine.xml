@@ -39,8 +39,7 @@
         android:background="@drawable/wine1l"
         android:id="@+id/wine1l"
         android:layout_below="@+id/wine125txt"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
+        android:layout_centerHorizontal="true" />
 
 
     <TextView
