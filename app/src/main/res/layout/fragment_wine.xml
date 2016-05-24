@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="roy.tablayoutwithviewpager.DrinksFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wines have 12-13 % alcohol"
+        android:id="@+id/textView6"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/wine1l"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wine250"
+        android:id="@+id/wine250"
+        android:layout_marginTop="128dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wine500"
+        android:background="@drawable/wine500"
+        android:layout_alignBottom="@+id/wine250"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wine1l"
+        android:id="@+id/wine1l"
+        android:layout_below="@+id/wine125txt"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="1 L"
+        android:id="@+id/wine1ltxt"
+        android:textAlignment="center"
+        android:layout_below="@+id/wine1l"
+        android:layout_alignLeft="@+id/wine1l"
+        android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/wine1l"
+/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="125 ml"
+        android:id="@+id/wine125txt"
+        android:textAlignment="center"
+        android:layout_below="@+id/wine250"
+        android:layout_alignLeft="@+id/wine250"
+        android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/wine250"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="750 L"
+        android:id="@+id/wine750txt"
+        android:textAlignment="center"
+        android:layout_below="@+id/wine500"
+        android:layout_alignLeft="@+id/wine500"
+        android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/wine500"
+        />
+
+
+</RelativeLayout>
