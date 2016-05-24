@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="750 L"
+        android:text="750 ml"
         android:id="@+id/wine750txt"
         android:textAlignment="center"
         android:layout_below="@+id/wine500"

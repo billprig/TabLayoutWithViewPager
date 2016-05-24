@@ -9,6 +9,15 @@
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I am custom fragment" />
+        android:text="Customise"
+        android:id="@+id/customisetxt"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/waterbottle"
+        android:id="@+id/bottle"
+        android:layout_above="@+id/customisetxt"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
