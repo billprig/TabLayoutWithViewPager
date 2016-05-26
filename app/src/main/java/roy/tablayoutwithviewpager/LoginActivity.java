@@ -74,7 +74,7 @@ public class LoginActivity extends Activity {
                   session.createLoginSession(username, weight+" kg");
 
                   // Staring MainActivity
-                  Intent i = new Intent(getApplicationContext(), Main2Activity.class);
+                  Intent i = new Intent(getApplicationContext(), MainActivity.class);
                   startActivity(i);
                   finish();
 
