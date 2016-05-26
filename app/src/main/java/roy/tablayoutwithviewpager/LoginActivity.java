@@ -5,6 +5,7 @@ package roy.tablayoutwithviewpager;
  */
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -21,8 +22,7 @@ public class LoginActivity extends Activity {
    // login button
    Button btnLogin;
 
-   // Alert Dialog Manager
-   //AlertDialog alert = new AlertDialog();
+
 
    // Session Manager Class
    SessionManager session;
@@ -60,9 +60,9 @@ public class LoginActivity extends Activity {
             // Get username, password from EditText
             String username = txtUsername.getText().toString();
             String weight = txtWeight.getText().toString();
-
+            //String firstletter = String.valueOf(weight.charAt(0));
             // Check if username, password is filled
-            if(username.trim().length() > 0 /*&& password.trim().length() > 0*/){
+            if(username.trim().length() > 0 && weight.length() >1  ){
                // For testing puspose username, password is checked with sample data
                // username = test
                // password = test
@@ -78,9 +78,10 @@ public class LoginActivity extends Activity {
                   startActivity(i);
                   finish();
 
-               }else{
+               }
+            else{
                   // username / password doesn't match
-                  //     alert.showAlertDialog(LoginActivity.this, "Login failed..", "Username/Password is incorrect", false);
+                      opendialog();
                }
             /*}else{
                // user didn't entered username or password
@@ -90,5 +91,20 @@ public class LoginActivity extends Activity {
 
          }
       });
+   }
+   public void opendialog(){
+      // Alert Dialog Manager
+      AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+      alertDialogBuilder.setTitle("Login failed...");
+      alertDialogBuilder.setMessage("Username/Weight is incorrect");
+      AlertDialog alertDialog = alertDialogBuilder.create();
+      alertDialog.show();
+
+      //alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        // @Override
+         //public void onClick(DialogInterface arg0, int arg1) {
+
+    //     }
+      //});
    }
 }
