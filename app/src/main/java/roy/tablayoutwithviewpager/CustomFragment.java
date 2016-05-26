@@ -78,6 +78,7 @@ public class CustomFragment  extends Fragment {
          public void onProgressChanged(SeekBar seekBar, int progress,
                                        boolean fromUser)
          {
+            progress=10*progress;
             updateCustom(progress); // update the bottle image
          }
          // end method onProgressChanged

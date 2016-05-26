@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,6 +34,8 @@ public class Main2Activity extends AppCompatActivity {
       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
 
+
+
       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
       fab.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -41,6 +44,9 @@ public class Main2Activity extends AppCompatActivity {
                .setAction("Action", null).show();
          }
       });
+
+
+
 
       // Session class instance
       session = new SessionManager(getApplicationContext());
@@ -89,6 +95,20 @@ public class Main2Activity extends AppCompatActivity {
          }
       });
    }
+
+
+
+   //Adding Settings to the Toolbar
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+      return true;
+   }
+
+
+
    public void click(View view){
       startActivity(new Intent(this, MainActivity.class));
    }

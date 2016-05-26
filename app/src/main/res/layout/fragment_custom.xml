@@ -51,9 +51,10 @@
 
     <SeekBar
         android:layout_width="120dp"
+        android:progress="0"
         android:layout_height="wrap_content"
         android:id="@+id/seekBarPosotita"
-        android:max="1000"
+        android:max="100"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp"
         android:layout_alignTop="@+id/setVolume"
@@ -61,6 +62,7 @@
         android:layout_toEndOf="@+id/setVolume"/>
 
     <SeekBar
+        android:progress="0"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:id="@+id/seekBarAlcohol"

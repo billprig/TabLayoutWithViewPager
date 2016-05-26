@@ -6,4 +6,5 @@
     <string name="title_activity_main2">Calcuholic</string>
     <string name="set_volume">Volume(ml)</string>
     <string name="set_alcohol">Alcohol(%)</string>
+    <string name="action_settings">Settings</string>
 </resources>
