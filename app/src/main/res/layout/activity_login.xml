@@ -2,8 +2,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:padding="10dip">
+              android:padding="10dip"
+              android:orientation="vertical">
 
     <!-- Email Label -->
     <TextView
@@ -35,9 +35,32 @@
               android:singleLine="true"/>
 
     <!-- Login button -->
-    <Button android:id="@+id/btnLogin"
-            android:layout_width="fill_parent"
+
+    <RadioGroup
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"/>
+            android:text="Male"
+            android:id="@+id/Male"
+            />
+
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:id="@+id/Female"
+        />
+
+    </RadioGroup>
+
+    <Button android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

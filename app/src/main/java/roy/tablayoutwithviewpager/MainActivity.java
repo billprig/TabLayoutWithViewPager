@@ -143,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
       SharedPreferences sharedPrefs = PreferenceManager
          .getDefaultSharedPreferences(this);
 
+
+
       StringBuilder builder = new StringBuilder();
 
       builder.append("\n Username: "
@@ -150,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
 
       builder.append("\n Weight: "
          + user.get(SessionManager.KEY_WEIGHT)+"kg");
+
+      builder.append("\n Sex: "
+         + sharedPrefs.getString("sex", "NULL"));
 
       builder.append("\n Send report:"
          + sharedPrefs.getBoolean("prefSendReport", false));

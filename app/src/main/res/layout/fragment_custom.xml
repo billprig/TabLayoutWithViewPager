@@ -10,9 +10,10 @@
         android:layout_height="wrap_content"
         android:text="Tap the bottle to add your custom drink"
         android:id="@+id/customisetxt"
-        android:layout_marginBottom="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/seekBarAlcohol"
+        android:layout_alignLeft="@+id/setAlcohol"
+        android:layout_alignStart="@+id/setAlcohol"
+        android:layout_marginTop="48dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"

@@ -32,8 +32,18 @@ public class SessionManager {
    // User name (make variable public to access from outside)
    public static final String KEY_NAME = "name";
 
-   // Email address (make variable public to access from outside)
+   // Weight (make variable public to access from outside)
    public static final String KEY_WEIGHT = "weight";
+
+   // SEX (make variable public to access from outside)
+   public static final String KEY_SEX = "sex";
+
+
+   // ALCOHOL (make variable public to access from outside)
+   public static final String KEY_ALCOHOL = "alcohol";
+
+   //real_alcohol
+   private float real_alcohol = 0;
 
    // Constructor
    public SessionManager(Context context){
@@ -45,15 +55,21 @@ public class SessionManager {
    /**
     * Create login session
     * */
-   public void createLoginSession(String name, String email){
+   public void createLoginSession(String name, String weight , String sex){
       // Storing login value as TRUE
       editor.putBoolean(IS_LOGIN, true);
 
       // Storing name in pref
       editor.putString(KEY_NAME, name);
 
-      // Storing email in pref
-      editor.putString(KEY_WEIGHT, email);
+      // Storing weight in pref
+      editor.putString(KEY_WEIGHT, weight);
+
+      //
+      editor.putString(KEY_SEX,sex);
+
+
+
 
       // commit changes
       editor.commit();
@@ -81,14 +97,41 @@ public class SessionManager {
 
    }
 
-
-public void changeName(String string){
-   editor.remove(KEY_NAME);
-   editor.putString(KEY_NAME, string);
-   editor.commit();
-
-
+   //change the name of user
+   public void changeName(String string){
+      editor.remove(KEY_NAME);
+      editor.putString(KEY_NAME, string);
+      editor.commit();
 }
+
+
+   //change  sex region of user
+   public void changeSex(String string){
+      editor.remove(KEY_SEX);
+      editor.putString(KEY_SEX, string);
+      editor.commit();
+   }
+
+   public void alcoholInGrams(int Volume,int Alcoholpercent){
+      real_alcohol += Volume*Alcoholpercent*0.789;
+      editor.putFloat(KEY_ALCOHOL,real_alcohol);
+      editor.commit();
+   }
+
+   public HashMap<String, Float> getUserAlcohol(){
+      HashMap<String, Float> user1 = new HashMap<String, Float>();
+      // user name
+      user1.put(KEY_ALCOHOL, pref.getFloat(KEY_ALCOHOL,real_alcohol));
+
+      // user email id
+      //user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
+
+      // return user
+      return user1;
+   }
+
+
+
    /**
     * Get stored session data
     * */
@@ -97,9 +140,10 @@ public void changeName(String string){
       // user name
       user.put(KEY_NAME, pref.getString(KEY_NAME, null));
 
-      // user email id
+      // user weight
       user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
 
+      user.put(KEY_SEX, pref.getString(KEY_SEX, null));
       // return user
       return user;
    }
@@ -111,6 +155,7 @@ public void changeName(String string){
       // Clearing all data from Shared Preferences
       editor.clear();
       editor.commit();
+      //real_alcohol = 0;
 
       // After logout redirect user to Loing Activity
       Intent i = new Intent(_context, LoginActivity.class);
