@@ -71,7 +71,7 @@ public class LoginActivity extends Activity {
                   // Creating user login session
                   // For testing i am stroing name, email as follow
                   // Use user real data
-                  session.createLoginSession(username, weight+" kg");
+                  session.createLoginSession(username, weight);
 
                   // Staring MainActivity
                   Intent i = new Intent(getApplicationContext(), MainActivity.class);

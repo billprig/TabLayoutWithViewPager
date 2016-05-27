@@ -1,20 +1,20 @@
 package roy.tablayoutwithviewpager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -75,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
       HashMap<String, String> user = session.getUserDetails();
 
       // name
-      String name = user.get(SessionManager.KEY_NAME);
+      //String name = user.get(SessionManager.KEY_NAME);
 
       // email
-      String email = user.get(SessionManager.KEY_EMAIL);
+     // String weight = user.get(SessionManager.KEY_WEIGHT);
 
       // displaying user data
-      lblName.setText(Html.fromHtml("Name: <b>" + name + "</b>"));
-      lblEmail.setText(Html.fromHtml("Email: <b>" + email + "</b>"));
+      //lblName.setText(Html.fromHtml("Name: <b>" + name + "</b>"));
+      //lblEmail.setText(Html.fromHtml("Weight: <b>" + email + "</b>"));
 
 
       /**
@@ -139,13 +139,17 @@ public class MainActivity extends AppCompatActivity {
    }
 
    private void showUserSettings() {
+      HashMap<String, String> user = session.getUserDetails();
       SharedPreferences sharedPrefs = PreferenceManager
          .getDefaultSharedPreferences(this);
 
       StringBuilder builder = new StringBuilder();
 
       builder.append("\n Username: "
-         + sharedPrefs.getString("prefUsername", "NULL"));
+         + user.get(SessionManager.KEY_NAME));
+
+      builder.append("\n Weight: "
+         + user.get(SessionManager.KEY_WEIGHT)+"kg");
 
       builder.append("\n Send report:"
          + sharedPrefs.getBoolean("prefSendReport", false));

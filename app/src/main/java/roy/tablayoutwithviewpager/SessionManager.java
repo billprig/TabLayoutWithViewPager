@@ -24,7 +24,7 @@ public class SessionManager {
    int PRIVATE_MODE = 0;
 
    // Sharedpref file name
-   private static final String PREF_NAME = "AndroidHivePref";
+   private static final String PREF_NAME = "AndroidPref";
 
    // All Shared Preferences Keys
    private static final String IS_LOGIN = "IsLoggedIn";
@@ -33,7 +33,7 @@ public class SessionManager {
    public static final String KEY_NAME = "name";
 
    // Email address (make variable public to access from outside)
-   public static final String KEY_EMAIL = "email";
+   public static final String KEY_WEIGHT = "weight";
 
    // Constructor
    public SessionManager(Context context){
@@ -53,7 +53,7 @@ public class SessionManager {
       editor.putString(KEY_NAME, name);
 
       // Storing email in pref
-      editor.putString(KEY_EMAIL, email);
+      editor.putString(KEY_WEIGHT, email);
 
       // commit changes
       editor.commit();
@@ -82,7 +82,13 @@ public class SessionManager {
    }
 
 
+public void changeName(String string){
+   editor.remove(KEY_NAME);
+   editor.putString(KEY_NAME, string);
+   editor.commit();
 
+
+}
    /**
     * Get stored session data
     * */
@@ -92,7 +98,7 @@ public class SessionManager {
       user.put(KEY_NAME, pref.getString(KEY_NAME, null));
 
       // user email id
-      user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
+      user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
 
       // return user
       return user;
