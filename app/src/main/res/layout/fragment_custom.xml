@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customise"
+        android:text="Tap the bottle to add your custom drink"
         android:id="@+id/customisetxt"
         android:layout_marginBottom="75dp"
         android:layout_alignParentBottom="true"
@@ -19,10 +19,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/waterbottle"
         android:id="@+id/bottle"
-        android:layout_marginTop="149dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="56dp"
+        android:layout_above="@+id/setVolume"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,9 +31,10 @@
         android:hint="@string/set_volume"
         android:inputType="numberDecimal"
         android:textAlignment="center"
-        android:layout_below="@+id/bottle"
-        android:layout_toLeftOf="@+id/customisetxt"
-        android:layout_toStartOf="@+id/customisetxt"/>
+        android:layout_marginTop="9dp"
+        android:layout_alignTop="@+id/seekBarPosotita"
+        android:layout_toLeftOf="@+id/seekBarPosotita"
+        android:layout_toStartOf="@+id/seekBarPosotita"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,30 +44,50 @@
         android:inputType="number"
         android:editable="false"
         android:textAlignment="center"
-        android:layout_below="@+id/seekBarPosotita"
+        android:layout_alignBottom="@+id/seekBarAlcohol"
         android:layout_alignLeft="@+id/setVolume"
         android:layout_alignStart="@+id/setVolume"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginBottom="8dp"/>
 
     <SeekBar
         android:layout_width="120dp"
+        android:progress="0"
         android:layout_height="wrap_content"
         android:id="@+id/seekBarPosotita"
-        android:max="1000"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_alignTop="@+id/setVolume"
-        android:layout_toRightOf="@+id/setVolume"
-        android:layout_toEndOf="@+id/setVolume"/>
+        android:max="100"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:minHeight="6dip"
+        android:maxHeight="6dip"
+
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/bottle"
+        android:layout_alignStart="@+id/bottle"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"/>
 
     <SeekBar
+        android:progress="0"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:id="@+id/seekBarAlcohol"
         android:max="100"
-        android:layout_alignTop="@+id/setAlcohol"
+
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:minHeight="6dip"
+        android:maxHeight="6dip"
+
+        android:layout_below="@+id/seekBarPosotita"
         android:layout_alignLeft="@+id/seekBarPosotita"
-        android:layout_alignStart="@+id/seekBarPosotita"/>
+        android:layout_alignStart="@+id/seekBarPosotita"
+        android:layout_marginTop="16dp"/>
 
 
 </RelativeLayout>
