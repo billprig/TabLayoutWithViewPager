@@ -79,29 +79,33 @@ public class LoginActivity extends Activity {
                // username = test
                // password = test
                //if(username.equals("test") && password.equals("test")){
-               if(sex.getCheckedRadioButtonId() == -1) {
+               /*if(sex.getCheckedRadioButtonId() == -1) {
                   opendialog("Login failed...","Check your sex region, please");
 
                }
-                else {
-                  selected_sex = (RadioButton) findViewById(sex.getCheckedRadioButtonId());
-                  sexAnswer =  selected_sex.getText().toString();
-                  // Creating user login session
-                  // For testing i am stroing name, email as follow
-                  // Use user real data
-                  session.createLoginSession(username, weight,sexAnswer);
+                else {*/
+               selected_sex = (RadioButton) findViewById(sex.getCheckedRadioButtonId());
+               sexAnswer =  selected_sex.getText().toString();
+               // Creating user login session
+               // For testing i am stroing name, email as follow
+               // Use user real data
+               session.createLoginSession(username, weight,sexAnswer);
 
-                  // Staring MainActivity
-                  Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                  startActivity(i);
-                  finish();
-                  }
+               // Staring MainActivity
+               Intent i = new Intent(getApplicationContext(), MainActivity.class);
+               startActivity(i);
+               finish();
+
                }
 
-            else{
+            else if(username.trim().length()== 0) {
                   // username / password doesn't match
-                      opendialog("Login failed...","Username/Weight is incorrect");
+                     opendialog("Login failed...","Username is empty");
                }
+            else if(weight.length() <2) {
+               // username / password doesn't match
+               opendialog("Login failed...","Weight is incorrect");
+            }
             /*}else{
                // user didn't entered username or password
                // Show alert asking him to enter the details
