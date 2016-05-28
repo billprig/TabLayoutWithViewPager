@@ -41,7 +41,7 @@ public class LoginActivity extends Activity {
 
       // Username, Weight input text
       txtUsername = (EditText) findViewById(R.id.txtUsername);
-      txtWeight = (EditText) findViewById(R.id.txtPassword);
+      txtWeight = (EditText) findViewById(R.id.txtWeight);
       txtWeight.setRawInputType(InputType.TYPE_CLASS_NUMBER
          | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
