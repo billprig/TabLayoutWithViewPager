@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/wine1l"
         android:id="@+id/wine1l"
+        android:onClick="set_wine"
         android:layout_alignTop="@+id/wine250"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="104dp"/>

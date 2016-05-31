@@ -7,18 +7,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 /**
  * Created by billprig on 23/05/16.
  */
 public class CustomFragment  extends Fragment {
 
+
+   SessionManager session;
    private TextView posotita;
    private TextView Alcohol;
    private ImageButton imagePosotita;
    private View myFragmentView;
+   private SeekBar seekBarPosotita;
+   private int fin_progress=0;
+
+
 
    public CustomFragment() {
       // Required empty public constructor
@@ -28,13 +34,19 @@ public class CustomFragment  extends Fragment {
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
+
       myFragmentView = inflater.inflate(R.layout.fragment_custom, container, false);
+
       posotita = (TextView) myFragmentView.findViewById(R.id.setVolume);
       Alcohol = (TextView) myFragmentView.findViewById(R.id.setAlcohol);
       imagePosotita = (ImageButton) myFragmentView.findViewById(R.id.bottle);
 
+      //gia ta dedomena
+      session = new SessionManager(getActivity().getApplicationContext());
+
+
       // set PosotitaSeekBar's OnSeekBarChangeListener
-      SeekBar seekBarPosotita =
+       seekBarPosotita =
          (SeekBar) myFragmentView.findViewById(R.id.seekBarPosotita);
       seekBarPosotita.setOnSeekBarChangeListener(PosotitaSeekBarListener);
 
@@ -43,10 +55,14 @@ public class CustomFragment  extends Fragment {
          (SeekBar) myFragmentView.findViewById(R.id.seekBarAlcohol);
       seekBarAlcohol.setOnSeekBarChangeListener(AlcoholSeekBarListener);
 
+      //When Imagebutton(Mpoukali) is pressed 
+      imagePosotita.setOnClickListener(MpoukaliPressed);
+
       // Inflate the layout for this fragment
       return myFragmentView;
 
    }
+
 
 
 
@@ -79,6 +95,7 @@ public class CustomFragment  extends Fragment {
                                        boolean fromUser)
          {
             progress=10*progress;
+            fin_progress=progress;
             updateCustom(progress); // update the bottle image
          }
          // end method onProgressChanged
@@ -116,6 +133,18 @@ public class CustomFragment  extends Fragment {
          {
          } // end method onStopTrackingTouch
       }; // end OnSeekBarChangeListener
+
+
+   //set Text to Textview of the mainactivity2
+   private View.OnClickListener MpoukaliPressed = new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+         session.alcoholInGrams(fin_progress);
+         ((MainActivity2)getActivity()).Apotelesma((Float.toString(session.getterRealAlcohol())));
+
+      }
+   };
+
 
 
 }

@@ -2,6 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_custom"
                 tools:context="roy.tablayoutwithviewpager.DrinksFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/waterbottle"
         android:id="@+id/bottle"
+
         android:layout_marginBottom="56dp"
         android:layout_above="@+id/setVolume"
         android:layout_centerHorizontal="true"/>
@@ -89,6 +91,15 @@
         android:layout_alignLeft="@+id/seekBarPosotita"
         android:layout_alignStart="@+id/seekBarPosotita"
         android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/test"
+        android:layout_below="@+id/seekBarAlcohol"
+        android:layout_alignRight="@+id/customisetxt"
+        android:layout_alignEnd="@+id/customisetxt"/>
 
 
 </RelativeLayout>
