@@ -140,8 +140,11 @@ public class MainActivity extends AppCompatActivity {
 
    private void showUserSettings() {
       HashMap<String, String> user = session.getUserDetails();
+      HashMap<String, Float> user1 = session.getUserAlcohol();
       SharedPreferences sharedPrefs = PreferenceManager
          .getDefaultSharedPreferences(this);
+
+
 
       StringBuilder builder = new StringBuilder();
 
@@ -149,7 +152,10 @@ public class MainActivity extends AppCompatActivity {
          + user.get(SessionManager.KEY_NAME));
 
       builder.append("\n Weight: "
-         + user.get(SessionManager.KEY_WEIGHT)+"kg");
+         + user1.get(SessionManager.KEY_WEIGHT)+"kg");
+
+      builder.append("\n Sex: "
+         + sharedPrefs.getString("sex", "NULL"));
 
       builder.append("\n Send report:"
          + sharedPrefs.getBoolean("prefSendReport", false));

@@ -2,6 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_custom"
                 tools:context="roy.tablayoutwithviewpager.DrinksFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,15 +11,17 @@
         android:layout_height="wrap_content"
         android:text="Tap the bottle to add your custom drink"
         android:id="@+id/customisetxt"
-        android:layout_marginBottom="75dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/seekBarAlcohol"
+        android:layout_alignLeft="@+id/setAlcohol"
+        android:layout_alignStart="@+id/setAlcohol"
+        android:layout_marginTop="48dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/waterbottle"
         android:id="@+id/bottle"
+
         android:layout_marginBottom="56dp"
         android:layout_above="@+id/setVolume"
         android:layout_centerHorizontal="true"/>

@@ -12,12 +12,16 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
    // Email, password edittext
    EditText txtUsername, txtWeight;
+   RadioGroup sex;
+   RadioButton selected_sex;
 
    // login button
    Button btnLogin;
@@ -35,14 +39,20 @@ public class LoginActivity extends Activity {
       // Session Manager
       session = new SessionManager(getApplicationContext());
 
-      // Email, Password input text
+      // Username, Weight input text
       txtUsername = (EditText) findViewById(R.id.txtUsername);
-      txtWeight = (EditText) findViewById(R.id.txtPassword);
+      txtWeight = (EditText) findViewById(R.id.txtWeight);
       txtWeight.setRawInputType(InputType.TYPE_CLASS_NUMBER
          | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 
       txtWeight.addTextChangedListener(new CustomTextWatcher(
          txtWeight));
+
+      //radio button, sex
+      sex = (RadioGroup) findViewById(R.id.sex);
+
+
+
 
 
       Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
@@ -60,29 +70,43 @@ public class LoginActivity extends Activity {
             // Get username, password from EditText
             String username = txtUsername.getText().toString();
             String weight = txtWeight.getText().toString();
+            Float wght= Float.parseFloat(weight);
+            String sexAnswer;
+
             //String firstletter = String.valueOf(weight.charAt(0));
             // Check if username, password is filled
-            if(username.trim().length() > 0 && weight.length() >1  ){
+            if(username.trim().length() > 0 && weight.length() >1 ){
                // For testing puspose username, password is checked with sample data
                // username = test
                // password = test
                //if(username.equals("test") && password.equals("test")){
-
-                  // Creating user login session
-                  // For testing i am stroing name, email as follow
-                  // Use user real data
-                  session.createLoginSession(username, weight);
-
-                  // Staring MainActivity
-                  Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                  startActivity(i);
-                  finish();
+               /*if(sex.getCheckedRadioButtonId() == -1) {
+                  opendialog("Login failed...","Check your sex region, please");
 
                }
-            else{
+                else {*/
+               selected_sex = (RadioButton) findViewById(sex.getCheckedRadioButtonId());
+               sexAnswer =  selected_sex.getText().toString();
+               // Creating user login session
+               // For testing i am stroing name, email as follow
+               // Use user real data
+               session.createLoginSession(username, wght,sexAnswer);
+
+               // Staring MainActivity
+               Intent i = new Intent(getApplicationContext(), MainActivity.class);
+               startActivity(i);
+               finish();
+
+               }
+
+            else if(username.trim().length()== 0) {
                   // username / password doesn't match
-                      opendialog();
+                     opendialog("Login failed...","Username is empty");
                }
+            else if(weight.length() <2) {
+               // username / password doesn't match
+               opendialog("Login failed...","Weight is incorrect");
+            }
             /*}else{
                // user didn't entered username or password
                // Show alert asking him to enter the details
@@ -92,11 +116,11 @@ public class LoginActivity extends Activity {
          }
       });
    }
-   public void opendialog(){
+   public void opendialog(String Title, String Messagge){
       // Alert Dialog Manager
       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-      alertDialogBuilder.setTitle("Login failed...");
-      alertDialogBuilder.setMessage("Username/Weight is incorrect");
+      alertDialogBuilder.setTitle(Title);
+      alertDialogBuilder.setMessage(Messagge);
       AlertDialog alertDialog = alertDialogBuilder.create();
       alertDialog.show();
 

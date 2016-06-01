@@ -12,5 +12,8 @@
         <item name="30">30</item>
         <item name="0">0</item>
     </string-array>
-
+    <string-array name="sex">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>

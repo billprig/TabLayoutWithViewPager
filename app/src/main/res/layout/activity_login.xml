@@ -1,43 +1,90 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:padding="10dip">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical"
+    >
 
-    <!-- Email Label -->
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:singleLine="true"
-        android:layout_marginBottom="5dip"/>
 
-    <!-- Email input text -->
+
+    <!-- Username input text -->
     <EditText android:id="@+id/txtUsername"
+              android:hint="Enter your username"
+              android:maxLength="20"
+              android:textAlignment="center"
+              android:textColorHint="#700c0c"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_marginBottom="10dip"/>
+              android:minHeight="50dp"
+              android:background="@drawable/edittext_background"
+              android:layout_above="@+id/txtWeight"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_marginBottom="32dp"/>
 
-    <!-- Password Label -->
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter your weight (kg)"
-        android:layout_marginBottom="5dip"/>
 
-    <!-- Password input text -->
-    <EditText android:id="@+id/txtPassword"
+
+    <!-- Weight input text -->
+    <EditText android:id="@+id/txtWeight"
+              android:hint="Enter your weight(kg)"
+              android:textAlignment="center"
               android:inputType="numberDecimal"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_marginBottom="20dip"
-              android:singleLine="true"/>
+              android:minHeight="50dp"
+              android:background="@drawable/edittext_background"
+              android:minWidth="50dp"
+              android:singleLine="true"
+              android:layout_centerVertical="true"
+              android:layout_toStartOf="@+id/sex"
+              android:layout_alignRight="@+id/btnLogin"
+              android:layout_alignEnd="@+id/btnLogin"/>
+
+
+
 
     <!-- Login button -->
-    <Button android:id="@+id/btnLogin"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"/>
 
-</LinearLayout>
+    <RadioGroup
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:minWidth="90dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:checked="true"
+            android:id="@+id/Male"
+            android:buttonTint="@color/colorPrimaryDark"
+            />
+
+        <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:id="@+id/Female"
+        android:buttonTint="@color/colorPrimaryDark"
+        />
+
+    </RadioGroup>
+
+    <Button android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="49dp"/>
+
+
+</RelativeLayout>

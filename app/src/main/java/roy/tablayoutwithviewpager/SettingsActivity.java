@@ -2,6 +2,7 @@ package roy.tablayoutwithviewpager;
 
 import android.os.Bundle;
 import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
@@ -12,18 +13,26 @@ public class SettingsActivity extends PreferenceActivity {
    private EditTextPreference username;
    private String name;
    SessionManager session;
-
+   private ListPreference sex;
+   HashMap<String, String> user;
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
       session = new SessionManager(getApplicationContext());
-      HashMap<String, String> user = session.getUserDetails();
+      user = session.getUserDetails();
+      //user1 = session.getUserAlcohol();
 
       // name
       name = user.get(SessionManager.KEY_NAME);
 
       addPreferencesFromResource(R.xml.settings);
+      sex = (ListPreference) findPreference("sex") ;
+
+      //set sex region
+      if(user.get(SessionManager.KEY_SEX).equals("Male"))sex.setValueIndex(0);
+      else sex.setValueIndex(1);
+
       username = (EditTextPreference) findPreference("prefUsername");
       username.setTitle("Username: "+name);
       username.setText(name);
@@ -39,11 +48,24 @@ public class SettingsActivity extends PreferenceActivity {
                session.changeName(name);
             }
 
-
             return true;
          }
       });
 
+
+      final Preference prefSex = getPreferenceManager().findPreference("sex");
+      prefSex.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+
+         @Override
+         public boolean onPreferenceChange(Preference preference, Object newValue) {
+            if (!newValue.toString().equals(user.get(SessionManager.KEY_SEX))){
+               session.changeSex(newValue.toString());
+            }
+
+
+            return true;
+         }
+      });
 
 
    }

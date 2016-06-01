@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/wine250"
         android:id="@+id/wine250"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="95dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -38,8 +38,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/wine1l"
         android:id="@+id/wine1l"
-        android:layout_below="@+id/wine125txt"
-        android:layout_centerHorizontal="true" />
+        android:onClick="set_wine"
+        android:layout_alignTop="@+id/wine250"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="104dp"/>
 
 
     <TextView
@@ -62,11 +64,12 @@
         android:text="125 ml"
         android:id="@+id/wine125txt"
         android:textAlignment="center"
-        android:layout_below="@+id/wine250"
-        android:layout_alignLeft="@+id/wine250"
-        android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/wine250"
-        />
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_alignTop="@+id/wine750txt"
+        android:layout_toLeftOf="@+id/textView6"
+        android:layout_toStartOf="@+id/textView6"
+        android:layout_marginTop="4dp"/>
 
     <TextView
         android:layout_width="wrap_content"
