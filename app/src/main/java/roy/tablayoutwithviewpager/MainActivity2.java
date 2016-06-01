@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -24,7 +25,6 @@ public class MainActivity2 extends AppCompatActivity {
     SeekBar custom_alc;
     SessionManager session;
     CustomFragment fragment_custom;
-    FragmentPagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
         bac=(TextView) findViewById(R.id.BAC_calculator);
         custom_vol = (SeekBar) findViewById(R.id.seekBarPosotita);
         custom_alc = (SeekBar) findViewById(R.id.seekBarAlcohol);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
 
 
         setSupportActionBar(toolbar);
@@ -68,6 +68,30 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar_menu2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.reset:
+               session.reset();
+                Apotelesma("0");
+                break;
+
+        }
+
+        return true;
+    }
+
    private void goback(){ startActivity(new Intent(this, MainActivity.class));}
 
 
@@ -76,8 +100,8 @@ public class MainActivity2 extends AppCompatActivity {
    // }
 
     public void set_wine(View view) {
-        session.alcoholInGrams(350);
-        bac.setText(Float.toString(session.getterRealAlcohol()));
+        session.alcoholInGrams(350,13);
+        //bac.setText(Float.toString(session.getterRealAlcohol()));
     }
 
     public void Apotelesma (String text){

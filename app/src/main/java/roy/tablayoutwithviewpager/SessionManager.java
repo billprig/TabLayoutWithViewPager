@@ -55,7 +55,7 @@ public class SessionManager {
    /**
     * Create login session
     * */
-   public void createLoginSession(String name, String weight , String sex){
+   public void createLoginSession(String name, Float weight , String sex){
       // Storing login value as TRUE
       editor.putBoolean(IS_LOGIN, true);
 
@@ -63,7 +63,7 @@ public class SessionManager {
       editor.putString(KEY_NAME, name);
 
       // Storing weight in pref
-      editor.putString(KEY_WEIGHT, weight);
+      editor.putFloat(KEY_WEIGHT, weight);
 
       //
       editor.putString(KEY_SEX,sex);
@@ -105,9 +105,19 @@ public class SessionManager {
 }
 
 
-   public Float sex_number() {
-      if(getUserDetails().get(KEY_SEX).equals("Male")) return (float) 0.879;
+   private Float sex_number() {
+      if(getUserDetails().get(KEY_SEX).equals("Male")) return (float) 0.68;
       else return  0.55f;
+   }
+
+
+   public Float bac(int time){
+      float bac1 = (float) (getUserAlcohol().get(KEY_ALCOHOL)*0.789);
+      float weight;
+      weight = (float) getUserAlcohol().get(KEY_WEIGHT) * sex_number() * 10;
+      bac1 = bac1/weight;
+      bac1 = bac1 - time * 0.015f;
+      return bac1;
    }
 
    //change  sex region of user
@@ -117,31 +127,32 @@ public class SessionManager {
       editor.commit();
    }
 
-   public float alcoholInGrams(int Volume/*,int Alcoholpercent*/){
-      real_alcohol = getUserAlcohol().get(KEY_ALCOHOL)+ Volume /** Alcoholpercent * 0.789f*/;
+   public float alcoholInGrams(int Volume ,int Alcoholpercent){
+      real_alcohol = getUserAlcohol().get(KEY_ALCOHOL)+ Volume * Alcoholpercent/100.0f;
       editor.remove(KEY_ALCOHOL);
       editor.putFloat(KEY_ALCOHOL, (float) real_alcohol);
       editor.commit();
       return real_alcohol;
    }
 
-   public float getterRealAlcohol(){
-      return getUserAlcohol().get(KEY_ALCOHOL);
-
+   public void reset(){
+      editor.remove(KEY_ALCOHOL);
+      editor.putFloat(KEY_ALCOHOL, (float) 0);
+      editor.commit();
    }
 
 
 
    public HashMap<String, Float> getUserAlcohol(){
-      HashMap<String, Float> user = new HashMap<String, Float>();
+      HashMap<String, Float> user1 = new HashMap<String, Float>();
       // user name
-      user.put(KEY_ALCOHOL, pref.getFloat(KEY_ALCOHOL, 0.0f));
-
+      user1.put(KEY_ALCOHOL, pref.getFloat(KEY_ALCOHOL, 0.0f));
+      user1.put(KEY_WEIGHT,pref.getFloat(KEY_WEIGHT,0.0f));
       // user email id
       //user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
 
       // return user
-      return user;
+      return user1;
    }
 
 
@@ -155,7 +166,7 @@ public class SessionManager {
       user.put(KEY_NAME, pref.getString(KEY_NAME, null));
 
       // user weight
-      user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
+      //user.put(KEY_WEIGHT, pref.getString(KEY_WEIGHT, null));
 
       user.put(KEY_SEX, pref.getString(KEY_SEX, null));
       // return user

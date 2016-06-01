@@ -21,6 +21,7 @@ public class SettingsActivity extends PreferenceActivity {
 
       session = new SessionManager(getApplicationContext());
       user = session.getUserDetails();
+      //user1 = session.getUserAlcohol();
 
       // name
       name = user.get(SessionManager.KEY_NAME);

@@ -23,6 +23,7 @@ public class CustomFragment  extends Fragment {
    private View myFragmentView;
    private SeekBar seekBarPosotita;
    private int fin_progress=0;
+   private int fin_percent=0;
 
 
 
@@ -55,7 +56,7 @@ public class CustomFragment  extends Fragment {
          (SeekBar) myFragmentView.findViewById(R.id.seekBarAlcohol);
       seekBarAlcohol.setOnSeekBarChangeListener(AlcoholSeekBarListener);
 
-      //When Imagebutton(Mpoukali) is pressed 
+      //When Imagebutton(Mpoukali) is pressed
       imagePosotita.setOnClickListener(MpoukaliPressed);
 
       // Inflate the layout for this fragment
@@ -120,6 +121,7 @@ public class CustomFragment  extends Fragment {
          public void onProgressChanged(SeekBar seekBar, int progress,
                                        boolean fromUser)
          {
+            fin_percent=progress;
             Alcohol.setText("Alcohol : "+String.valueOf(progress)+"%");
          } // end method onProgressChanged
 
@@ -139,8 +141,8 @@ public class CustomFragment  extends Fragment {
    private View.OnClickListener MpoukaliPressed = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-         session.alcoholInGrams(fin_progress);
-         ((MainActivity2)getActivity()).Apotelesma((Float.toString(session.getterRealAlcohol())));
+         session.alcoholInGrams(fin_progress,fin_percent);
+         ((MainActivity2)getActivity()).Apotelesma((Float.toString(session.bac(0)))+"%");
 
       }
    };

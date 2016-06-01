@@ -70,6 +70,7 @@ public class LoginActivity extends Activity {
             // Get username, password from EditText
             String username = txtUsername.getText().toString();
             String weight = txtWeight.getText().toString();
+            Float wght= Float.parseFloat(weight);
             String sexAnswer;
 
             //String firstletter = String.valueOf(weight.charAt(0));
@@ -89,7 +90,7 @@ public class LoginActivity extends Activity {
                // Creating user login session
                // For testing i am stroing name, email as follow
                // Use user real data
-               session.createLoginSession(username, weight,sexAnswer);
+               session.createLoginSession(username, wght,sexAnswer);
 
                // Staring MainActivity
                Intent i = new Intent(getApplicationContext(), MainActivity.class);

@@ -92,14 +92,5 @@
         android:layout_alignStart="@+id/seekBarPosotita"
         android:layout_marginTop="16dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/test"
-        android:layout_below="@+id/seekBarAlcohol"
-        android:layout_alignRight="@+id/customisetxt"
-        android:layout_alignEnd="@+id/customisetxt"/>
-
 
 </RelativeLayout>
