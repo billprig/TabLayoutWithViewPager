@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wines have 12-13 % alcohol"
+        android:text="Wines have 13 % alcohol"
         android:id="@+id/textView6"
         android:layout_marginTop="38dp"
         android:layout_below="@+id/wine1l"
@@ -63,15 +63,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="125 ml"
+        android:text="250 ml"
         android:id="@+id/wine125txt"
         android:textAlignment="center"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp"
-        android:layout_alignTop="@+id/wine750txt"
-        android:layout_toLeftOf="@+id/textView6"
-        android:layout_toStartOf="@+id/textView6"
-        android:layout_marginTop="4dp"/>
+        android:layout_below="@+id/wine250"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="41dp"/>
 
     <TextView
         android:layout_width="wrap_content"

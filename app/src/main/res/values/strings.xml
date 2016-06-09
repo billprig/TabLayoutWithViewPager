@@ -14,7 +14,8 @@
     <string name="pref_user_name">Set username</string>
     <string name="pref_user_name_summary">Change your username</string>
 
-
+    <string name="hour_dialog">Time elapsed since drinking began:</string>/
+    <string name="hour_symbol">h</string>/
     <string name="pref_user_profile">User Profile</string>
     <string name="pref_session">Session Settings</string>
     <string name="pref_log_out">Log out !!!</string>
