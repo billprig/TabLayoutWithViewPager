@@ -106,7 +106,7 @@ public class SessionManager {
 
 
    private Float sex_number() {
-      if(getUserDetails().get(KEY_SEX).equals("Male")) return (float) 0.68;
+      if(getUserDetails().get(KEY_SEX).equals("Male")) return  0.68f;
       else return  0.55f;
    }
 

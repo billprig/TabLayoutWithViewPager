@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main2">Calcuholic</string>
+    <string name="title_activity_main2">Calculate BAC</string>
     <string name="set_volume">Volume(ml)</string>
     <string name="set_alcohol">Alcohol(%)</string>
     <string name="action_settings">Settings</string>
@@ -14,9 +14,12 @@
     <string name="pref_user_name">Set username</string>
     <string name="pref_user_name_summary">Change your username</string>
 
+
     <string name="pref_user_profile">User Profile</string>
-    <string name="pref_update_setting">Update Settings</string>
+    <string name="pref_session">Session Settings</string>
+    <string name="pref_log_out">Log out !!!</string>
+    <string name="pref_gender_summary"></string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Calcuholic</string>
     <string name="reset">Reset</string>
 </resources>

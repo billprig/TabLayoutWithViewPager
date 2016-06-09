@@ -13,7 +13,7 @@
               android:hint="Enter your username"
               android:maxLength="20"
               android:textAlignment="center"
-              android:textColorHint="#700c0c"
+
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:minHeight="50dp"
