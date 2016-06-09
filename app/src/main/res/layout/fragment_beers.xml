@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton250"
         android:background="@drawable/ml250"
+        android:onClick="set_beer250"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -28,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ml330"
+        android:onClick="set_beer330"
         android:id="@+id/imageButton330"
         android:layout_alignTop="@+id/imageButton250"
         android:layout_centerHorizontal="true"/>
@@ -36,10 +38,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton500"
+        android:onClick="set_beer500"
         android:background="@drawable/ml500"
         android:layout_alignTop="@+id/imageButton330"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/l1"
+        android:id="@+id/imageButton1lit"
+        android:onClick="set_beer1l"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/imageButton330"
+        android:layout_alignStart="@+id/imageButton330"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,14 +89,7 @@
         android:layout_marginLeft="9dp"
         android:layout_marginStart="9dp"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/l1"
-        android:id="@+id/imageButton1lit"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/imageButton330"
-        android:layout_alignStart="@+id/imageButton330"/>
+
 
     <TextView
         android:layout_width="wrap_content"

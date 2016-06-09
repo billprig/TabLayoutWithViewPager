@@ -68,5 +68,17 @@ public class SettingsActivity extends PreferenceActivity {
       });
 
 
+      Preference button = (Preference)findPreference(getString(R.string.pref_log_out));
+      button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+         @Override
+         public boolean onPreferenceClick(Preference preference) {
+            session.logoutUser();
+            return true;
+         }
+      });
+
+
+
+
    }
 }

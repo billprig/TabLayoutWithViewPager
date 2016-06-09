@@ -10,6 +10,8 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 /**
  * Created by billprig on 23/05/16.
  */
@@ -142,7 +144,10 @@ public class CustomFragment  extends Fragment {
       @Override
       public void onClick(View v) {
          session.alcoholInGrams(fin_progress,fin_percent);
-         ((MainActivity2)getActivity()).Apotelesma((Float.toString(session.bac(0)))+"%");
+         String str2 = new BigDecimal(session.bac(0))
+            .setScale(3, BigDecimal.ROUND_HALF_UP)
+            .toString();
+         ((MainActivity2)getActivity()).Apotelesma(str2+" %");
 
       }
    };

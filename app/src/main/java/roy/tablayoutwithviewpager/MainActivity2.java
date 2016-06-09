@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 
 public class MainActivity2 extends AppCompatActivity {
     ViewPager  pager;
@@ -37,6 +39,13 @@ public class MainActivity2 extends AppCompatActivity {
         pager= (ViewPager) findViewById(R.id.view_pager);
         tabLayout= (TabLayout) findViewById(R.id.tab_layout);
         bac=(TextView) findViewById(R.id.BAC_calculator);
+         String str2 = new BigDecimal(session.bac(0))
+          .setScale(3, BigDecimal.ROUND_HALF_UP)
+          .toString();
+         bac.setText(str2+" %");
+
+
+
         custom_vol = (SeekBar) findViewById(R.id.seekBarPosotita);
         custom_alc = (SeekBar) findViewById(R.id.seekBarAlcohol);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
@@ -84,7 +93,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             case R.id.reset:
                session.reset();
-                Apotelesma("0");
+                Apotelesma("0%");
                 break;
 
         }
@@ -99,9 +108,12 @@ public class MainActivity2 extends AppCompatActivity {
     //    bac.setText("pressed");
    // }
 
-    public void set_wine(View view) {
-        session.alcoholInGrams(350,13);
-        //bac.setText(Float.toString(session.getterRealAlcohol()));
+    public void set_wine1l(View view) {
+        session.alcoholInGrams(1000,13);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
     }
 
     public void Apotelesma (String text){
@@ -109,7 +121,52 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
 
+    public void set_wine750(View view) {
+        session.alcoholInGrams(750,13);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
 
+    public void set_wine250(View view) {
+        session.alcoholInGrams(250,13);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
 
+    public void set_beer250(View view) {
+        session.alcoholInGrams(250,5);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
+
+    public void set_beer330(View view) {
+        session.alcoholInGrams(330,5);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
+
+    public void set_beer500(View view) {
+        session.alcoholInGrams(500,5);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
+
+    public void set_beer1l(View view) {
+        session.alcoholInGrams(1000,5);
+        String str2 = new BigDecimal(session.bac(0))
+           .setScale(3, BigDecimal.ROUND_HALF_UP)
+           .toString();
+        bac.setText(str2+" %");
+    }
 }
 

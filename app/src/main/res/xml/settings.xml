@@ -13,7 +13,8 @@
 
         <ListPreference
             android:key="sex"
-            android:title="Sex Region"
+            android:title="Gender"
+            android:summary="@string/pref_gender_summary"
             android:defaultValue="Female"
             android:entries="@array/sex"
             android:entryValues="@array/sex"/>
@@ -21,8 +22,13 @@
     </PreferenceCategory>
 
 
-    <PreferenceCategory android:title="@string/pref_update_setting" >
-        <CheckBoxPreference
+    <PreferenceCategory android:title="@string/pref_session" >
+
+
+        <Preference android:title="Log out"
+                    android:key="@string/pref_log_out"
+                    android:summary="End this Session"/>
+        <!--<CheckBoxPreference
             android:defaultValue="false"
             android:key="prefSendReport"
             android:summary="@string/pref_send_report_summary"
@@ -34,7 +40,7 @@
             android:entries="@array/syncFrequency"
             android:summary="@string/pref_sync_frequency_summary"
             android:entryValues="@array/syncFrequencyValues"
-            android:title="@string/pref_sync_frequency" />
+            android:title="@string/pref_sync_frequency" />-->
     </PreferenceCategory>
 
 </PreferenceScreen>

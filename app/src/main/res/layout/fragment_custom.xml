@@ -22,8 +22,8 @@
         android:background="@drawable/waterbottle"
         android:id="@+id/bottle"
 
-        android:layout_marginBottom="56dp"
-        android:layout_above="@+id/setVolume"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/seekBarPosotita"
         android:layout_centerHorizontal="true"/>
 
     <TextView

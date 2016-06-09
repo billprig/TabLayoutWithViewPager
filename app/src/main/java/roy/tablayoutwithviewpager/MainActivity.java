@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
       setContentView(R.layout.activity_main);
       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
+      getSupportActionBar().setIcon(R.drawable.logo);
 
 
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
       // Button logout
       btnLogout = (Button) findViewById(R.id.btnLogout);
 
-      Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+      //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
 
       /**
@@ -157,11 +157,11 @@ public class MainActivity extends AppCompatActivity {
       builder.append("\n Sex: "
          + sharedPrefs.getString("sex", "NULL"));
 
-      builder.append("\n Send report:"
-         + sharedPrefs.getBoolean("prefSendReport", false));
+      //builder.append("\n Send report:"
+      //   + sharedPrefs.getBoolean("prefSendReport", false));
 
-      builder.append("\n Sync Frequency: "
-         + sharedPrefs.getString("prefSyncFrequency", "NULL"));
+      //builder.append("\n Sync Frequency: "
+      //   + sharedPrefs.getString("prefSyncFrequency", "NULL"));
 
       TextView settingsTextView = (TextView) findViewById(R.id.textUserSettings);
 
