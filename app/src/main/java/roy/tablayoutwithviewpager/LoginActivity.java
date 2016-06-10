@@ -17,15 +17,13 @@ import android.widget.RadioGroup;
 
 public class LoginActivity extends Activity {
 
-   // Email, password edittext
+   // Username,weight and gender
    EditText txtUsername, txtWeight;
    RadioGroup sex;
    RadioButton selected_sex;
 
    // login button
    Button btnLogin;
-
-
 
    // Session Manager Class
    SessionManager session;
@@ -47,15 +45,8 @@ public class LoginActivity extends Activity {
       txtWeight.addTextChangedListener(new CustomTextWatcher(
          txtWeight));
 
-      //radio button, sex
+      //radio group, sex
       sex = (RadioGroup) findViewById(R.id.sex);
-
-
-
-
-
-      //Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
-
 
       // Login button
       btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -66,7 +57,7 @@ public class LoginActivity extends Activity {
 
          @Override
          public void onClick(View arg0) {
-            // Get username, password from EditText
+            // Get username, weight from EditText
             String username = txtUsername.getText().toString();
             String weight = txtWeight.getText().toString();
             Float wght;

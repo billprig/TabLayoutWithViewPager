@@ -143,11 +143,21 @@ public class CustomFragment  extends Fragment {
    private View.OnClickListener MpoukaliPressed = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+         float waiting_time_f;
          session.alcoholInGrams(fin_progress,fin_percent);
-         String str2 = new BigDecimal(session.bac(0))
+         float time = ((MainActivity2)getActivity()).get_time();
+
+         String str2 = new BigDecimal(session.bac(time))
             .setScale(3, BigDecimal.ROUND_HALF_UP)
-            .toString();
-         ((MainActivity2)getActivity()).Apotelesma(str2+" %");
+            .toString()+" %";
+         if(session.bac(time)>0.05){
+            waiting_time_f= (float) ((session.bac(time)-0.05)/0.015);
+            String formattedString = String.format("%.1f", waiting_time_f);
+            str2=str2 + "\n You can't drive. You have to wait "+ formattedString+"h";
+         }
+
+
+         ((MainActivity2)getActivity()).Apotelesma(str2);
 
       }
    };
