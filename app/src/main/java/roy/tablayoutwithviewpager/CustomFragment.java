@@ -154,8 +154,11 @@ public class CustomFragment  extends Fragment {
             waiting_time_f= (float) ((session.bac(time)-0.05)/0.015);
             String formattedString = String.format("%.1f", waiting_time_f);
             str2=str2 + "\n You can't drive. You have to wait "+ formattedString+"h";
+            if(waiting_time_f>6)
+               str2=str2+"\nBetter call a taxi/friend";
          }
-
+         else if(session.bac(time)<0 && (fin_progress==0 || fin_percent==0))
+            str2="0%";
 
          ((MainActivity2)getActivity()).Apotelesma(str2);
 
