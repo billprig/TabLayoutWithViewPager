@@ -106,25 +106,13 @@ public class MainActivity extends AppCompatActivity {
          .getDefaultSharedPreferences(this);
       username_main1.setText(user.get(SessionManager.KEY_NAME));
 
-      StringBuilder builder = new StringBuilder();
-
-      builder.append("\n Username: "
-         + user.get(SessionManager.KEY_NAME));
-
-      builder.append("\n Weight: "
-         + user1.get(SessionManager.KEY_WEIGHT)+"kg");
-
-      builder.append("\n Sex: "
-         + sharedPrefs.getString("sex", "NULL"));
-
-
-      TextView settingsTextView = (TextView) findViewById(R.id.textUserSettings);
-
-      settingsTextView.setText(builder.toString());
    }
 
    public void click(View view){
       startActivity(new Intent(this, MainActivity2.class));
+   }
+   public void click_dialer(View view){
+      startActivity(new Intent(this, Call_dialer_activity.class));
    }
 
    public void alcohol_dialog(){

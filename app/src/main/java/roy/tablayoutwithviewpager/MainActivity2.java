@@ -25,7 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
     TabLayout tabLayout;
 
    TextView bac;
-   TextView hours_text;
+
    SeekBar custom_vol;
    SeekBar custom_alc;
    private float time;
@@ -43,7 +43,7 @@ public class MainActivity2 extends AppCompatActivity {
         pager= (ViewPager) findViewById(R.id.view_pager);
         tabLayout= (TabLayout) findViewById(R.id.tab_layout);
 
-        hours_text =(TextView) findViewById(R.id.text_hours);
+
         bac=(TextView) findViewById(R.id.BAC_calculator);
          String str2 = new BigDecimal(session.bac(0))
           .setScale(3, BigDecimal.ROUND_HALF_UP)
@@ -111,80 +111,90 @@ public class MainActivity2 extends AppCompatActivity {
         session.alcoholInGrams(1000,13);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_wine750(View view) {
         session.alcoholInGrams(750,13);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_wine250(View view) {
         session.alcoholInGrams(250,13);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_beer250(View view) {
         session.alcoholInGrams(250,5);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_beer330(View view) {
         session.alcoholInGrams(330,5);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_beer500(View view) {
         session.alcoholInGrams(500,5);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_beer1l(View view) {
         session.alcoholInGrams(1000,5);
         String str2 = new BigDecimal(session.bac(time))
            .setScale(3, BigDecimal.ROUND_HALF_UP)
-           .toString();
-        bac.setText(str2+" %");
+           .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
     }
 
    public void set_drink330(View view) {
       session.alcoholInGrams(330,40);
       String str2 = new BigDecimal(session.bac(time))
          .setScale(3, BigDecimal.ROUND_HALF_UP)
-         .toString();
-      bac.setText(str2+" %");
+         .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
    }
 
    public void set_drink250(View view) {
       session.alcoholInGrams(250,40);
       String str2 = new BigDecimal(session.bac(time))
          .setScale(3, BigDecimal.ROUND_HALF_UP)
-         .toString();
-      bac.setText(str2+" %");
+         .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
    }
 
    public void set_drink125(View view) {
       session.alcoholInGrams(125,40);
       String str2 = new BigDecimal(session.bac(time))
          .setScale(3, BigDecimal.ROUND_HALF_UP)
-         .toString();
-      bac.setText(str2+" %");
+         .toString()+" %";
+      str2=condition(session.bac(time),str2);
+      bac.setText(str2);
    }
    //End of On_Click Events
 
@@ -208,7 +218,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                float float_h = Float.parseFloat(String.valueOf(hours.getValue())) /2.0f;
-               hours_text.setText(hours_txt+Float.toString(float_h)+"h");
+
                time = float_h;
             }
          }).setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
@@ -233,5 +243,25 @@ public class MainActivity2 extends AppCompatActivity {
    public float get_time() {
       return time;
    }
+
+
+   private String condition(float bac,String str){
+      String string;
+         string=str;
+      if(bac>0.05){
+         float waiting_time_f= (float) ((bac-0.05)/0.015);
+         String formattedString = String.format("%.1f", waiting_time_f);
+         if(waiting_time_f<9)
+            string=string + "\n Δε μπορείς να οδηγήσεις.\nΠρεπει να περιμένεις "+ formattedString+"h";
+         else if(waiting_time_f>9)
+            string=string+"\nΔε μπορείς να οδηγήσεις.\nΚαλύτερα κάλασε ενα ταξί/φίλο";
+         else if(waiting_time_f>15)
+            string=string+"\n Δε μπορείς να οδηγήσεις.\nΠρόσεχε!";
+      }
+      else if(session.bac(time)<0)
+         string="Η επίδραση του ποτού δεν υφίσταται πλέον.";
+      return string;
+   }
+
 }
 

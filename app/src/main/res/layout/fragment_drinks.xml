@@ -67,5 +67,15 @@
         android:layout_below="@+id/imageButton4"
         android:layout_centerHorizontal="true"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drinks have 40% alcohol"
+        android:id="@+id/textView8"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/textView10"
+        android:layout_alignRight="@+id/imageButton4"
+        android:layout_alignEnd="@+id/imageButton4"/>
+
 
 </RelativeLayout>

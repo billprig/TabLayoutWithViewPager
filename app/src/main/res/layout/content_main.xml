@@ -20,25 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
-        android:layout_marginTop="47dp"
-
         android:layout_below="@+id/username_main1"
         android:layout_centerHorizontal="true"/>
 
-
-
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textUserSettings"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
-        android:layout_marginTop="52dp"/>
 
     <TextView
         android:text="sdadas"
@@ -49,4 +33,15 @@
         android:layout_marginTop="70dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_dialer"
+        android:background="@drawable/button_dialer"
+
+        android:onClick="click_dialer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>
