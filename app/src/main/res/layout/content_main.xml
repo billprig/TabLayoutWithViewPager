@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="@drawable/background">
 
     <Button
         android:onClick="click"
@@ -19,55 +20,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="181dp"/>
-
-
-
-
-    <!-- Name Label -->
-    <TextView
-        android:id="@+id/lblName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:layout_marginTop="40dip"
-        android:layout_marginBottom="10dip"/>
-
-    <!-- Email Label -->
-    <TextView
-        android:id="@+id/lblEmail"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:layout_marginBottom="40dip"/>
-
-    <!-- Button to show session data -->
-    <Button android:id="@+id/btnLogout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_below="@+id/textUserSettings"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="83dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textUserSettings"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
-        android:layout_marginTop="52dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_alignTop="@+id/lblName"
+        android:layout_below="@+id/username_main1"
         android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:text="sdadas"
+        android:textColor="#808080"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_main1"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_dialer"
+        android:background="@drawable/button_dialer"
+
+        android:onClick="click_dialer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>

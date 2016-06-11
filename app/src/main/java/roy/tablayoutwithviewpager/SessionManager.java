@@ -111,7 +111,7 @@ public class SessionManager {
    }
 
 
-   public Float bac(int time){
+   public Float bac(float time){
       float bac1 = (float) (getUserAlcohol().get(KEY_ALCOHOL)*0.789);
       float weight;
       weight = (float) getUserAlcohol().get(KEY_WEIGHT) * sex_number() * 10;

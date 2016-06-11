@@ -143,11 +143,29 @@ public class CustomFragment  extends Fragment {
    private View.OnClickListener MpoukaliPressed = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+         float waiting_time_f;
          session.alcoholInGrams(fin_progress,fin_percent);
-         String str2 = new BigDecimal(session.bac(0))
+         float time = ((MainActivity2)getActivity()).get_time();
+
+         String str2 = new BigDecimal(session.bac(time))
             .setScale(3, BigDecimal.ROUND_HALF_UP)
-            .toString();
-         ((MainActivity2)getActivity()).Apotelesma(str2+" %");
+            .toString()+" %";
+         if(session.bac(time)>0.05){
+            waiting_time_f= (float) ((session.bac(time)-0.05)/0.015);
+            String formattedString = String.format("%.1f", waiting_time_f);
+            if(waiting_time_f<9)
+               str2=str2 + "\n Δε μπορείς να οδηγήσεις.\nΠρεπει να περιμένεις "+ formattedString+"h";
+            else if(waiting_time_f>9)
+               str2=str2+"\nΔε μπορείς να οδηγήσεις.\nΚαλύτερα κάλασε ενα ταξί/φίλο";
+            else if(waiting_time_f>15)
+               str2=str2+"\n Δε μπορείς να οδηγήσεις.\nΠρόσεχε!";
+         }
+         else if(session.bac(time)<0 && (fin_progress==0 || fin_percent==0))
+            str2="0%";
+         else if(session.bac(time)<0 && fin_progress>0 && fin_percent>0)
+            str2="Η επίδραση του ποτού δεν υφίσταται πλέον.";
+
+         ((MainActivity2)getActivity()).Apotelesma(str2);
 
       }
    };
