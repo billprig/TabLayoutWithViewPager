@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
    // Session Manager Class
    SessionManager session;
+   private TextView username_main1;
 
    private static final int RESULT_SETTINGS = 1;
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
+
+      username_main1 = (TextView) findViewById(R.id.username_main1);
+
 
       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
       // get user data from session
       HashMap<String, String> user = session.getUserDetails();
+      username_main1.setText(user.get(SessionManager.KEY_NAME));
 
    }
 
@@ -99,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
       HashMap<String, Float> user1 = session.getUserAlcohol();
       SharedPreferences sharedPrefs = PreferenceManager
          .getDefaultSharedPreferences(this);
-
-
+      username_main1.setText(user.get(SessionManager.KEY_NAME));
 
       StringBuilder builder = new StringBuilder();
 

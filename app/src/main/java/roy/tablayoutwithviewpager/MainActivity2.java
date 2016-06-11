@@ -211,7 +211,13 @@ public class MainActivity2 extends AppCompatActivity {
                hours_text.setText(hours_txt+Float.toString(float_h)+"h");
                time = float_h;
             }
-         });
+         }).setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+         @Override
+         public void onClick(DialogInterface dialog, int which) {
+            goback();
+            finish();
+         }
+      });
 
       String[] nums = {"0","0.5","1","1.5","2","2.5","3","3.5","4","4.5","5","5.5","6","6.5","7","7.5","8","8.5","9","9.5","10","10.5","11","11.5","12"};
       hours.setMinValue(0);
