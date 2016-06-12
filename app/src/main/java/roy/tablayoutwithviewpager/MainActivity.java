@@ -18,6 +18,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
 
+
    // Alert Dialog Manager
    //AlertDialogManager alert = new AlertDialogManager();
 
