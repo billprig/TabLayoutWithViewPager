@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.microsoft.windowsazure.mobileservices.*;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
@@ -19,6 +21,8 @@ public class Call_dialer_activity extends AppCompatActivity {
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
+      GPSTracker gps = new GPSTracker(this);
+
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_call_dialer_activity);
       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -40,10 +44,14 @@ public class Call_dialer_activity extends AppCompatActivity {
       } catch (MalformedURLException e) {
          e.printStackTrace();
       }
-
-
       TodoItem item = new TodoItem();
-      item.Text = "Awesome item";
+      if(gps.canGetLocation()) {
+         item.Text = Double.toString(gps.getLatitude()) +" "+ Double.toString(gps.getLongitude());
+      }else
+      {
+         item.Text = "Tzifos";
+      }
+
       mClient.getTable(TodoItem.class).insert(item, new TableOperationCallback<TodoItem>() {
          public void onCompleted(TodoItem entity, Exception exception, ServiceFilterResponse response) {
             if (exception == null) {
