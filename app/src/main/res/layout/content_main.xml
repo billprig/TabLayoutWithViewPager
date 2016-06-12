@@ -16,10 +16,11 @@
 
     <Button
         android:onClick="click"
-        android:text="calculate"
+        android:background="@drawable/button_bac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
+        android:layout_marginTop="94dp"
         android:layout_below="@+id/username_main1"
         android:layout_centerHorizontal="true"/>
 

@@ -11,10 +11,9 @@
         android:layout_height="wrap_content"
         android:text="Tap the bottle to add your custom drink"
         android:id="@+id/customisetxt"
-        android:layout_below="@+id/seekBarAlcohol"
-        android:layout_alignLeft="@+id/setAlcohol"
-        android:layout_alignStart="@+id/setAlcohol"
-        android:layout_marginTop="48dp"/>
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/setAlcohol"
+        android:layout_centerHorizontal="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -22,8 +21,8 @@
         android:background="@drawable/waterbottle"
         android:id="@+id/bottle"
 
-        android:layout_marginBottom="30dp"
-        android:layout_above="@+id/seekBarPosotita"
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/setVolume"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -87,10 +86,10 @@
         android:minHeight="6dip"
         android:maxHeight="6dip"
 
+        android:layout_marginTop="28dp"
         android:layout_below="@+id/seekBarPosotita"
         android:layout_alignLeft="@+id/seekBarPosotita"
-        android:layout_alignStart="@+id/seekBarPosotita"
-        android:layout_marginTop="16dp"/>
+        android:layout_alignStart="@+id/seekBarPosotita"/>
 
 
 </RelativeLayout>
