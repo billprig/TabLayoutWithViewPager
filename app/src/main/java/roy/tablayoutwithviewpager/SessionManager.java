@@ -3,6 +3,7 @@ package roy.tablayoutwithviewpager;
 /**
  * Created by billprig on 25/05/16.
  */
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -107,6 +108,7 @@ public class SessionManager {
 
    private Float sex_number() {
       if(getUserDetails().get(KEY_SEX).equals("Male")) return  0.68f;
+      else if(getUserDetails().get(KEY_SEX).equals("Άντρας")) return 0.68f;
       else return  0.55f;
    }
 

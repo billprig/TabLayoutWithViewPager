@@ -13,7 +13,7 @@
 
     <!-- Username input text -->
     <EditText android:id="@+id/txtUsername"
-              android:hint="Enter your username"
+              android:hint="@string/enter_username"
               android:textColor="#4b4b4b"
               android:maxLength="20"
               android:textAlignment="center"
@@ -32,7 +32,7 @@
 
     <!-- Weight input text -->
     <EditText android:id="@+id/txtWeight"
-              android:hint="Enter your weight (kg)"
+              android:hint="@string/enter_weight"
               android:textColor="#4b4b4b"
               android:textAlignment="center"
               android:inputType="numberDecimal"
@@ -71,7 +71,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
+            android:text="@string/male"
             android:checked="true"
             android:id="@+id/Male"
             android:buttonTint="#5a8bb0"
@@ -80,7 +80,7 @@
         <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Female"
+        android:text="@string/female"
         android:id="@+id/Female"
         android:buttonTint="#5a8bb0"
         />
@@ -90,7 +90,6 @@
     <Button android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
             android:layout_gravity="center_horizontal"
             android:minWidth="210dp"
             android:minHeight="70dp"

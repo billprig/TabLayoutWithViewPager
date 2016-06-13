@@ -13,9 +13,7 @@
 
         <ListPreference
             android:key="sex"
-            android:title="Gender"
-            android:summary="@string/pref_gender_summary"
-            android:defaultValue="Female"
+            android:title="@string/gender"
             android:entries="@array/sex"
             android:entryValues="@array/sex"/>
 
@@ -25,9 +23,9 @@
     <PreferenceCategory android:title="@string/pref_session" >
 
 
-        <Preference android:title="Log out"
+        <Preference android:title="@string/pref_log_out"
                     android:key="@string/pref_log_out"
-                    android:summary="End this Session"/>
+                    android:summary="@string/pref_session_end"/>
 
     </PreferenceCategory>
 

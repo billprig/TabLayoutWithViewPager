@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Calcuholic</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="title_activity_main">Calcuholic</string>
+    <string name="title_activity_main2">Υπολόγισε τον BAC</string>
+    <string name="title_activity_call_dialer_activity">Κλήση</string>
+
+    <string name="set_volume">Όγκος(ml)</string>
+    <string name="set_alcohol">Αλκοόλ(%)</string>
+    <string name="action_settings">Ρυθμίσεις</string>
+    <string name="pref_user_name">Θέσε ψευδώνυμο</string>
+    <string name="pref_user_name_summary">Άλλαξε το ψευδώνυμο σου</string>
+    <string name="pref_user_profile">Προφίλ Χρήστη</string>
+    <string name="pref_session">Ρυθμίσεις Συνεδρίας</string>
+    <string name="pref_session_end">Τέλος Συνεδρίας</string>
+    <string name="pref_log_out">Αποσύνδεση</string>
+
+    <string name="menu_settings">Ρυθμίσεις</string>
+
+    <string name="hour_dialog">Χρονικό διάστημα από αρχή πιοτού</string>/
+    <string name="hour_symbol">Ώρες</string>/
+
+    <string name="reset">Επαναφορά</string>
+    <string name="cancel">Άκυρο</string>
+    <string name="ok">Οκ</string>
+
+    <string name="loginfailed">Η είσοδος απέτυχε...</string>
+    <string name="username_empty">Το ψευδώνυμο είναι κενό</string>
+    <string name="weight_incorrect">Το βάρος είναι λάθος</string>
+    <string name="username_weight">Υπάρχει κάπου λάθος</string>
+
+    <string name="cantdrive">Δε μπορείς να οδηγήσεις.</string>
+    <string name="youahavetowait">Πρεπει να περιμένεις </string>
+    <string name="callhelp">Καλύτερα κάλασε ένα ταξί/φίλο</string>
+    <string name="takecare">Πρόσεχε!</string>
+    <string name="effect">Η επίδραση του ποτού δεν υφίσταται πλέον.</string>
+
+
+    <string name="drink_title">Ποτά</string>
+    <string name="wine_title">Κρασί</string>
+    <string name="beer_title">Μπύρες</string>
+    <string name="custom_title">Custom</string>
+
+    <string name="username">Ψευδώνυμο</string>
+    <string name="gender">Φύλο</string>
+    <string name="male">Άντρας</string>
+    <string name="female">Γυναίκα</string>
+
+    <string name="enter_username">Ψευδώνυμο</string>
+    <string name="enter_weight">Βάρος (kg)</string>
+
+    <string name="drinks_per">Τα ποτά έχουν 40% αλκοόλ</string>
+    <string name="beers_per">Οι μπύρες έχουν 5% αλκοόλ</string>
+    <string name="wine_per">Τα κρασιά έχουν 13% αλκοόλ</string>
+    <string name="tap">Πάτα το μπουκάλι για να προσθέσεις το ποτό σου</string>
+
+
+
+</resources>

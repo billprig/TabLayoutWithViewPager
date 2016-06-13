@@ -81,13 +81,13 @@ public class LoginActivity extends Activity {
 
                }
             else if(username.trim().length()== 0 && weight.length() <2)
-               opendialog("Login failed...","Username/weight is incorrect");
+               opendialog(getResources().getString(R.string.loginfailed),getResources().getString(R.string.username_weight));
 
             else if(username.trim().length()== 0)
-               opendialog("Login failed...","Username is empty");
+               opendialog(getResources().getString(R.string.loginfailed),getResources().getString(R.string.username_empty));
 
             else if(weight.length() <2)
-               opendialog("Login failed...","Weight is incorrect");
+               opendialog(getResources().getString(R.string.loginfailed),getResources().getString(R.string.weight_incorrect));
 
          }
       });

@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drinks have 40% alcohol"
+        android:text="@string/drinks_per"
         android:id="@+id/textView8"
         android:layout_marginTop="37dp"
         android:layout_below="@+id/textView10"

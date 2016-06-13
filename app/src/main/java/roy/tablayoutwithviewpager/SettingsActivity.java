@@ -30,11 +30,11 @@ public class SettingsActivity extends PreferenceActivity {
       sex = (ListPreference) findPreference("sex") ;
 
       //set sex region
-      if(user.get(SessionManager.KEY_SEX).equals("Male"))sex.setValueIndex(0);
+      if(user.get(SessionManager.KEY_SEX).equals(getResources().getString(R.string.male)))sex.setValueIndex(0);
       else sex.setValueIndex(1);
 
       username = (EditTextPreference) findPreference("prefUsername");
-      username.setTitle("Username: "+name);
+      username.setTitle(getResources().getString(R.string.username)+": "+name);
       username.setText(name);
 
       final Preference pref = getPreferenceManager().findPreference("prefUsername");
@@ -43,7 +43,7 @@ public class SettingsActivity extends PreferenceActivity {
          @Override
          public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (newValue.toString().length()!=0){
-               pref.setTitle("Username: "+ newValue.toString());
+               pref.setTitle(getResources().getString(R.string.username)+": "+ newValue.toString());
                name=newValue.toString();
                session.changeName(name);
             }

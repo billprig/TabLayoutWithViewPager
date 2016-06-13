@@ -71,7 +71,7 @@ public class MainActivity2 extends AppCompatActivity {
         FragmentManager manager=getSupportFragmentManager();
 
         //fragment.specific_function_name();
-        PagerAdapter adapter=new PagerAdapter(manager);
+        PagerAdapter adapter=new PagerAdapter(manager,getApplicationContext());
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         // mTabLayout.setupWithViewPager(mPager1);
@@ -204,7 +204,7 @@ public class MainActivity2 extends AppCompatActivity {
    }
 
    public void hour_dialog(){
-      final String hours_txt = "Time elapsed since drinking began: ";
+      final String hours_txt = getResources().getString(R.string.hour_dialog);
       AlertDialog.Builder builder = new AlertDialog.Builder(this);
       LayoutInflater inflater = LayoutInflater.from(this);
       View theView = inflater.inflate(R.layout.picker, null);
@@ -214,14 +214,14 @@ public class MainActivity2 extends AppCompatActivity {
 
       builder.setCancelable(false);
       builder.setView(theView)
-         .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+         .setPositiveButton(getResources().getString(R.string.ok),new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                float float_h = Float.parseFloat(String.valueOf(hours.getValue())) /2.0f;
 
                time = float_h;
             }
-         }).setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+         }).setNegativeButton(getResources().getString(R.string.cancel),new DialogInterface.OnClickListener() {
          @Override
          public void onClick(DialogInterface dialog, int which) {
             goback();
@@ -246,21 +246,27 @@ public class MainActivity2 extends AppCompatActivity {
 
 
    private String condition(float bac,String str){
-      String string;
-         string=str;
+      String cantdrive = getResources().getString(R.string.cantdrive);
+      String havetowait = getResources().getString(R.string.youahavetowait);
+      String call_help = getResources().getString(R.string.callhelp);
+      String takecare = getResources().getString(R.string.takecare);
+      String effect = getResources().getString(R.string.effect);
+      String hours_symbol = getResources().getString(R.string.hour_symbol);
+      String str2;
+         str2=str;
       if(bac>0.05){
          float waiting_time_f= (float) ((bac-0.05)/0.015);
          String formattedString = String.format("%.1f", waiting_time_f);
          if(waiting_time_f<9)
-            string=string + "\n Δε μπορείς να οδηγήσεις.\nΠρεπει να περιμένεις "+ formattedString+"h";
+            str2=str2 + "\n"+cantdrive+"\n"+havetowait+" "+ formattedString+" "+ hours_symbol;
          else if(waiting_time_f>9)
-            string=string+"\nΔε μπορείς να οδηγήσεις.\nΚαλύτερα κάλασε ενα ταξί/φίλο";
+            str2=str2+"\n"+cantdrive+"\n"+call_help;
          else if(waiting_time_f>15)
-            string=string+"\n Δε μπορείς να οδηγήσεις.\nΠρόσεχε!";
+            str2=str2+"\n"+cantdrive+"\n"+takecare;
       }
-      else if(session.bac(time)<0)
-         string="Η επίδραση του ποτού δεν υφίσταται πλέον.";
-      return string;
+      else if(bac<0)
+         str2=effect;
+      return str2;
    }
 
 }

@@ -1,5 +1,6 @@
 package roy.tablayoutwithviewpager;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -8,8 +9,10 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * Created by kundan on 10/16/2015.
  */
 public class PagerAdapter  extends FragmentStatePagerAdapter{
-    public PagerAdapter(FragmentManager fm) {
+    private Context _context;
+    public PagerAdapter(FragmentManager fm, Context c) {
         super(fm);
+        _context = c;
     }
 
     @Override
@@ -43,16 +46,16 @@ public class PagerAdapter  extends FragmentStatePagerAdapter{
         String title=" ";
         switch (position){
             case 0:
-                title="Drinks";
+                title=_context.getResources().getString(R.string.drink_title);
                 break;
             case 1:
-                title="Beers";
+                title=_context.getResources().getString(R.string.beer_title);
                 break;
             case 2:
-                title="Wine";
+                title=_context.getResources().getString(R.string.wine_title);
                 break;
             case 3:
-                title="Custom";
+                title=_context.getResources().getString(R.string.custom_title);
                 break;
         }
 

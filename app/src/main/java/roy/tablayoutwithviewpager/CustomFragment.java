@@ -26,7 +26,8 @@ public class CustomFragment  extends Fragment {
    private SeekBar seekBarPosotita;
    private int fin_progress=0;
    private int fin_percent=0;
-
+   private String volume_set;
+   private String alcohol_set;
 
 
    public CustomFragment() {
@@ -43,6 +44,9 @@ public class CustomFragment  extends Fragment {
       posotita = (TextView) myFragmentView.findViewById(R.id.setVolume);
       Alcohol = (TextView) myFragmentView.findViewById(R.id.setAlcohol);
       imagePosotita = (ImageButton) myFragmentView.findViewById(R.id.bottle);
+      alcohol_set = getActivity().getResources().getString(R.string.set_alcohol);
+      volume_set= getActivity().getResources().getString(R.string.set_volume);
+
 
       //gia ta dedomena
       session = new SessionManager(getActivity().getApplicationContext());
@@ -74,8 +78,8 @@ public class CustomFragment  extends Fragment {
    private void updateCustom(int progress)
    {
       //progress is the volume(ml) of the bottle
-
-      posotita.setText("Volume(ml) : "+String.valueOf(progress));
+      //String volume = ((MainActivity2)getActivity()).getResources().getString(R.string.set_volume);
+      posotita.setText(volume_set+" : "+String.valueOf(progress));
 
       if(progress==0)imagePosotita.setBackgroundResource(R.drawable.waterbottle);
       else if (progress<=93) imagePosotita.setBackgroundResource(R.drawable.waterbottle62_5ml);
@@ -118,13 +122,14 @@ public class CustomFragment  extends Fragment {
    private OnSeekBarChangeListener AlcoholSeekBarListener =
       new OnSeekBarChangeListener()
       {
+         //String alcohol = getActivity().getResources().getString(R.string.set_alcohol);
          // update customPercent, then call updateCustom
          @Override
          public void onProgressChanged(SeekBar seekBar, int progress,
                                        boolean fromUser)
          {
             fin_percent=progress;
-            Alcohol.setText("Alcohol : "+String.valueOf(progress)+"%");
+            Alcohol.setText(alcohol_set+" : "+String.valueOf(progress));
          } // end method onProgressChanged
 
          @Override
@@ -146,6 +151,12 @@ public class CustomFragment  extends Fragment {
          float waiting_time_f;
          session.alcoholInGrams(fin_progress,fin_percent);
          float time = ((MainActivity2)getActivity()).get_time();
+         String cantdrive = getResources().getString(R.string.cantdrive);
+         String havetowait =getResources().getString(R.string.youahavetowait);
+         String call_help = getResources().getString(R.string.callhelp);
+         String takecare = getResources().getString(R.string.takecare);
+         String effect = getResources().getString(R.string.effect);
+         String hours_symbol = getResources().getString(R.string.hour_symbol);
 
          String str2 = new BigDecimal(session.bac(time))
             .setScale(3, BigDecimal.ROUND_HALF_UP)
@@ -154,16 +165,16 @@ public class CustomFragment  extends Fragment {
             waiting_time_f= (float) ((session.bac(time)-0.05)/0.015);
             String formattedString = String.format("%.1f", waiting_time_f);
             if(waiting_time_f<9)
-               str2=str2 + "\n Δε μπορείς να οδηγήσεις.\nΠρεπει να περιμένεις "+ formattedString+"h";
+               str2=str2 + "\n"+cantdrive+"\n"+havetowait+" "+ formattedString+" "+ hours_symbol;
             else if(waiting_time_f>9)
-               str2=str2+"\nΔε μπορείς να οδηγήσεις.\nΚαλύτερα κάλασε ενα ταξί/φίλο";
+               str2=str2+"\n"+cantdrive+"\n"+call_help;
             else if(waiting_time_f>15)
-               str2=str2+"\n Δε μπορείς να οδηγήσεις.\nΠρόσεχε!";
+               str2=str2+"\n"+cantdrive+"\n"+takecare;
          }
          else if(session.bac(time)<0 && (fin_progress==0 || fin_percent==0))
             str2="0%";
          else if(session.bac(time)<0 && fin_progress>0 && fin_percent>0)
-            str2="Η επίδραση του ποτού δεν υφίσταται πλέον.";
+            str2=effect;
 
          ((MainActivity2)getActivity()).Apotelesma(str2);
 
