@@ -258,7 +258,7 @@ public class MainActivity2 extends AppCompatActivity {
          float waiting_time_f= (float) ((bac-0.05)/0.015);
          String formattedString = String.format("%.1f", waiting_time_f);
          if(waiting_time_f<9)
-            str2=str2 + "\n"+cantdrive+"\n"+havetowait+" "+ formattedString+" "+ hours_symbol;
+            str2=str2 + "\n"+cantdrive+"\n"+havetowait+ new String(" ") + formattedString+ new String(" ")+ hours_symbol;
          else if(waiting_time_f>9)
             str2=str2+"\n"+cantdrive+"\n"+call_help;
          else if(waiting_time_f>15)
